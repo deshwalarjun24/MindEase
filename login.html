@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MindEase - Professional Counseling</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Login Page Specific Styles */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f9f9f9 100%);
+        }
+
+        .auth-box {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 500px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-box h2 {
+            color: var(--text-color);
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .auth-box p {
+            color: var(--light-text);
+            margin-bottom: 30px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--light-text);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .auth-tab.active {
+            color: var(--primary-color);
+        }
+
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .auth-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+        }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            display: block;
+            margin-top: 10px;
+            text-align: right;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #eee;
+            margin: 0 10px;
+        }
+
+        .social-login {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            background-color: #f9f9f9;
+            border-color: #ccc;
+        }
+
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+
+        .auth-footer {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--light-text);
+        }
+
+        .auth-footer a {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-left: 5px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 576px) {
+            .auth-box {
+                padding: 30px 20px;
+            }
+
+            .auth-tabs {
+                flex-direction: column;
+            }
+
+            .auth-tab {
+                padding: 12px;
+            }
+
+            .social-login {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Mind<span>Ease</span></h1>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#counselors">Our Counselors</a>
+                <a href="#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login active">Login</a>
+                <a href="register.html" class="btn btn-primary">Sign Up</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Section -->
+    <section class="auth-container">
+        <div class="auth-box">
+            <h2>Welcome Back!</h2>
+            <p>Sign in to continue to your MindEase account</p>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="client">I'm a Client</div>
+                <div class="auth-tab" data-tab="counselor">I'm a Counselor</div>
+            </div>
+
+            <!-- Client Login Form -->
+            <form id="clientLoginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="clientEmail">Email Address</label>
+                    <input type="email" id="clientEmail" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPassword">Password</label>
+                    <input type="password" id="clientPassword" class="form-control" placeholder="Enter your password" required>
+                    <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                </div>
+                <div class="form-footer">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-auth">Sign In</button>
+                </div>
+                
+                <div class="divider">Or continue with</div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-google"></i>
+                    </button>
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </button>
+                </div>
+                
+                <p class="auth-footer">
+                    Don't have an account? <a href="register.html">Sign up</a>
+                </p>
+            </form>
+
+            <!-- Counselor Login Form -->
+            <form id="counselorLoginForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="counselorEmail">Professional Email</label>
+                    <input type="email" id="counselorEmail" class="form-control" placeholder="Enter your professional email" required>
+                </div>
+                <div class="form-group">
+                    <label for="counselorPassword">Password</label>
+                    <input type="password" id="counselorPassword" class="form-control" placeholder="Enter your password" required>
+                    <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                </div>
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMeCounselor" name="rememberMe">
+                    <label for="rememberMeCounselor">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-auth">Sign In as Counselor</button>
+                
+                <p class="auth-footer">
+                    New to MindEase? <a href="register.html?type=counselor">Join as a Counselor</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Include the main JavaScript file -->
+    <script src="js/script.js"></script>
+    
+    <!-- Login Page Specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab Switching
+            const tabs = document.querySelectorAll('.auth-tab');
+            const forms = document.querySelectorAll('.auth-form');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and forms
+                    tabs.forEach(t => t.classList.remove('active'));
+                    forms.forEach(f => f.style.display = 'none');
+                    
+                    // Add active class to clicked tab and show corresponding form
+                    this.classList.add('active');
+                    const tabType = this.getAttribute('data-tab');
+                    document.getElementById(`${tabType}LoginForm`).style.display = 'block';
+                });
+            });
+            
+            // Form Submission
+            const clientForm = document.getElementById('clientLoginForm');
+            const counselorForm = document.getElementById('counselorLoginForm');
+            
+            if (clientForm) {
+                clientForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your client login logic here
+                    const email = document.getElementById('clientEmail').value;
+                    const password = document.getElementById('clientPassword').value;
+                    console.log('Client login attempt with:', email);
+                    // Redirect to dashboard or show error
+                });
+            }
+            
+            if (counselorForm) {
+                counselorForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your counselor login logic here
+                    const email = document.getElementById('counselorEmail').value;
+                    const password = document.getElementById('counselorPassword').value;
+                    console.log('Counselor login attempt with:', email);
+                    // Redirect to counselor dashboard or show error
+                });
+            }
+            
+            // Check URL parameters to show counselor tab by default
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('type') === 'counselor') {
+                document.querySelector('.auth-tab[data-tab="counselor"]').click();
+            }
+        });
+    </script>
+</body>
+</html>
