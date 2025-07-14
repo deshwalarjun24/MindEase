@@ -148,65 +148,9 @@ function isValidEmail(email) {
     return regex.test(email);
 }
 
-// Back to Top Button
-const backToTopButton = document.createElement('button');
-backToTopButton.innerHTML = '↑';
-backToTopButton.className = 'back-to-top';
-document.body.appendChild(backToTopButton);
+// Back to top button functionality has been removed
 
-// Show/hide back to top button
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-});
-
-// Scroll to top when clicked
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Add some styles for the back to top button
-const style = document.createElement('style');
-style.textContent = `
-    .back-to-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 20px;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-    }
-    
-    .back-to-top.show {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .back-to-top:hover {
-        background-color: #3a5bd9;
-        transform: translateY(-3px);
-    }
-`;
-document.head.appendChild(style);
+// Back to top button styles have been removed
 
 // Add animation to hero content
 document.addEventListener('DOMContentLoaded', () => {

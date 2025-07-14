@@ -1,38 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Connect with certified counselors online - Chat, Call, or Video sessions. Professional mental health support in your preferred language.">
     <title>MindEase | Professional Online Counseling</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <meta name="theme-color" content="#2563EB">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>document.documentElement.classList.remove('no-js');</script>
 </head>
-<body>
+<body class="loading">
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="#home" class="logo-link">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                    <path d="M16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2Z" fill="#2563EB"/>
+                    <path d="M16 8C11.5817 8 8 11.5817 8 16C8 20.4183 11.5817 24 16 24C20.4183 24 24 20.4183 24 16C24 11.5817 20.4183 8 16 8Z" fill="white"/>
+                </svg>
+                <span class="logo-text">Mind<span>Ease</span></span>
+            </a>
+            <button class="close-sidebar" id="closeSidebar" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#home" class="sidebar-link active">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#how-it-works" class="sidebar-link">
+                <i class="fas fa-cogs"></i> How It Works
+            </a>
+            <!-- <a href="#counselors" class="sidebar-link">
+                <i class="fas fa-users"></i> Our Counselors
+            </a> -->
+            <a href="#services" class="sidebar-link">
+                <i class="fas fa-concierge-bell"></i> Services
+            </a>
+            <!-- <a href="#about" class="sidebar-link">
+                <i class="fas fa-info-circle"></i> About Us
+            </a> -->
+            <!-- <a href="#contact" class="sidebar-link">
+                <i class="fas fa-envelope"></i> Contact
+            </a> -->
+        </nav>
+        <div class="sidebar-footer">
+            <a href="login.html" class="btn btn-outline btn-block">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-primary btn-block">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </aside>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" role="status" aria-label="Loading"></div>
+    
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <!-- Main Content -->
+    <main id="main-content" tabindex="-1">
+    
     <!-- Header Section -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <h1>Mind<span>Ease</span></h1>
+                <a href="#home" class="logo-link">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                        <path d="M16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2Z" fill="#2563EB"/>
+                        <path d="M16 8C11.5817 8 8 11.5817 8 16C8 20.4183 11.5817 24 16 24C20.4183 24 24 20.4183 24 16C24 11.5817 20.4183 8 16 8Z" fill="white"/>
+                    </svg>
+                    <span class="logo-text">Mind<span>Ease</span></span>
+                </a>
             </div>
-            <div class="nav-links">
-                <a href="#home" class="active">Home</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#counselors">Our Counselors</a>
-                <a href="#services">Services</a>
-                <a href="#about">About Us</a>
-                <a href="#contact">Contact</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <!-- <a href="#counselors" class="nav-link">Our Counselors</a> -->
+                <a href="#services" class="nav-link">Services</a>
+                <!-- <a href="#about" class="nav-link">About Us</a> -->
+                <!-- <a href="#contact" class="nav-link">Contact</a> -->
             </div>
             <div class="auth-buttons">
-                <a href="login.html" class="btn btn-login">Login</a>
-                <a href="register.html" class="btn btn-primary">Sign Up</a>
+                <a href="login.html" class="btn btn-outline">Login</a>
+                <a href="register.html" class="btn btn-primary">Get Started <i class="fas fa-arrow-right"></i></a>
             </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="sidebar">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
     </header>
 
@@ -40,16 +107,36 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Your Mental Health Matters</h1>
-                <p>Connect with licensed counselors from the comfort of your home. Available 24/7 for chat, call, or video sessions in multiple languages.</p>
+                <span class="hero-badge">Welcome to MindEase</span>
+                <h1>Your Journey to Better Mental Health Starts Here</h1>
+                <p>Connect with licensed, professional counselors who truly understand. Get matched with the right therapist and start your healing journey today with secure, confidential online sessions.</p>
                 <div class="cta-buttons">
-                    <a href="register.html" class="btn btn-primary">Find a Counselor</a>
-                    <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+                    <a href="register.html" class="btn btn-primary">Find Your Counselor <i class="fas fa-arrow-right"></i></a>
+                    <a href="#how-it-works" class="btn btn-outline">How It Works</a>
                 </div>
+                <!-- <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100% Confidential</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Licensed Therapists</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div> -->
             </div>
             <div class="hero-image">
-                <img src="images/hero-image.svg" alt="Online Counseling">
+                <img src="images/CC2.png" alt="Online Counseling" loading="lazy">
             </div>
+        </div>
+        <div class="hero-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
         </div>
     </section>
 
@@ -138,7 +225,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section
     <section class="testimonials">
         <div class="container">
             <h2 class="section-title">What Our Clients Say</h2>
@@ -156,14 +243,20 @@
                 <!-- More testimonials would go here -->
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CTA Section -->
     <section class="cta">
+        <div class="floating-shape floating-shape-1"></div>
+        <div class="floating-shape floating-shape-2"></div>
+        <div class="floating-shape floating-shape-3"></div>
         <div class="container">
             <h2>Ready to Start Your Journey to Better Mental Health?</h2>
             <p>Join thousands of people who have found support through MindEase.</p>
-            <a href="register.html" class="btn btn-primary">Get Started Today</a>
+            <div class="cta-buttons">
+                <a href="register.html" class="btn btn-primary">Get Started Today</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+            </div>
         </div>
     </section>
 
@@ -171,44 +264,71 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <h3>MindEase</h3>
-                    <p>Your trusted partner in mental health and wellness. Connecting you with certified counselors for professional support.</p>
+                <div class="footer-logo">
+                    <a href="#home" class="logo-link">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                            <path d="M16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2Z" fill="#2563EB"/>
+                            <path d="M16 8C11.5817 8 8 11.5817 8 16C8 20.4183 11.5817 24 16 24C20.4183 24 24 20.4183 24 16C24 11.5817 20.4183 8 16 8Z" fill="white"/>
+                        </svg>
+                        <span class="logo-text">Mind<span>Ease</span></span>
+                    </a>
+                    <p class="footer-tagline">Your mental health matters. We're here to help.</p>
                 </div>
+                
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#how-it-works">How It Works</a></li>
-                        <li><a href="#counselors">Our Counselors</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-envelope"></i> support@mindease.com</p>
-                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#services">Our Services</a></li>
+                            <li><a href="#counselors">Find a Counselor</a></li>
+                            <li><a href="#about">About Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                            <li><a href="terms.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Connect With Us</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <div class="newsletter">
+                            <p>Subscribe to our newsletter</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address" aria-label="Email address" required>
+                                <button type="submit" class="btn btn-primary">Subscribe</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 MindEase. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
+                <p>&copy; 2023 MindEase. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span class="divider">|</span>
+                    <a href="terms.html">Terms of Service</a>
+                    <span class="divider">|</span>
+                    <a href="cookies.html">Cookie Policy</a>
                 </div>
             </div>
         </div>
     </footer>
-
+    
     <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
